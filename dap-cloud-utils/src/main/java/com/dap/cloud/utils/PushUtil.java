@@ -1,4 +1,4 @@
-package com.dap.cloud;
+package com.dap.cloud.utils;
 
 import cn.jpush.api.JPushClient;
 import cn.jpush.api.push.PushResult;

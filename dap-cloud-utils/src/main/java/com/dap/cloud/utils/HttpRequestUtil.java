@@ -1,4 +1,4 @@
-package com.dap.cloud;
+package com.dap.cloud.utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
