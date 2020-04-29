@@ -1,0 +1,71 @@
+server:
+  port: 30005
+  jsp-servlet:
+    init-parameters:
+      development: true
+spring:
+  profiles:
+    active: @environment@
+  application:
+    name: dap-cloud-upload
+  session:
+    store-type: none
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    tomcat:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+  jpa:
+    database: mysql
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  redis:
+    database: 0
+    port: 6379
+    password:
+    pool:
+      min-idle: 0
+      max-idle: 8
+      max-wait: -1
+      max-active: 8
+    timeout: 0
+
+mybatis:
+  mapper-locations: classpath*:mapper/${spring.jpa.database}/**/*Mapper.xml
+  type-aliases-package: com.dap.cloud.**.domain
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://119.3.168.19:3306/tjzg?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/
+---
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:mysql://119.3.168.19:3306/tjzg?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/

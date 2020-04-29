@@ -52,5 +52,6 @@
         <module>dap-cloud-eureka</module>
         <module>dap-cloud-system</module>
         <module>dap-cloud-zuul</module>
+        <module>dap-cloud-upload</module>
     </modules>
 </project>
