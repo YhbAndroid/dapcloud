@@ -1,0 +1,80 @@
+server:
+  port: 30004
+  jsp-servlet:
+    init-parameters:
+      development: true
+spring:
+  application:
+    name: dap-cloud-system
+  profiles:
+    active: @environment@
+  session:
+    store-type: none
+  jpa:
+    database: mysql
+    show-sql: true
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    tomcat:
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 60000
+  redis:
+    database: 0
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+mybatis:
+  mapper-locations: classpath*:mapper/${spring.jpa.database}/**/*Mapper.xml
+  type-aliases-package: com.dap.cloud.**.domain
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://119.3.168.19:3306/tjzg?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+logging:
+  level:
+    com:
+      dap:
+        cloud: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/
+---
+spring:
+  profiles: pro
+  datasource:
+    url: jdbc:mysql://119.3.168.19:3306/tjzg?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: root
+  redis:
+    host: 127.0.0.1
+logging:
+  level:
+    com:
+      dap:
+        cloud: warn
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/
