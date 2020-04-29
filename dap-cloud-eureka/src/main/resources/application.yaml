@@ -1,0 +1,25 @@
+server:
+  port: 30000
+spring:
+  application:
+    name: dap-cloud-eureka
+  profiles:
+    active: ${environment}
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+---
+spring:
+  profiles: dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${server:port}/eureka/
+---
+spring:
+  profiles: pro
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${server:port}/eureka/
