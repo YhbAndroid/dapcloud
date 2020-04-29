@@ -50,5 +50,6 @@
     </dependencyManagement>
     <modules>
         <module>dap-cloud-eureka</module>
+        <module>dap-cloud-zuul</module>
     </modules>
 </project>
