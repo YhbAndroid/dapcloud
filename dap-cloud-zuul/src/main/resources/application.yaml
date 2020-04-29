@@ -1,0 +1,76 @@
+server:
+  port: 80
+spring:
+  application:
+    name: dap-cloud-zuul
+  profiles:
+    active: @environment@
+  session:
+    store-type: none
+  http:
+    multipart:
+      max-file-size: 100Mb
+      max-request-size: 100Mb
+  redis:
+    port: 6379
+    password:
+    timeout: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  routes:
+    system:
+      path: /system/**
+      serviceId: dap-cloud-system
+      sensitiveHeaders:
+    upload:
+      path: /upload/**
+      serviceId: dap-cloud-upload
+      sensitiveHeaders:
+system:
+  config:
+    sessionZuulFilter:
+      ignore: /resources/**,/system,/system/login,/system/logout,/system/manage/activityApply/appActivityMessage,/system/manage/activityApply/data,/system/manage/activityApply/save
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+---
+spring:
+  profiles: dev
+  redis:
+    host: 127.0.0.1
+zuul:
+  routes:
+    resources:
+      path: /resources/**
+      serviceId: http://localhost:30002/
+      sensitiveHeaders:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/
+---
+spring:
+  profiles: pro
+  redis:
+    host: 127.0.0.1
+zuul:
+  routes:
+    resources:
+      path: /resources/**
+      serviceId: http://localhost:30002/
+      sensitiveHeaders:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:30000/eureka/
