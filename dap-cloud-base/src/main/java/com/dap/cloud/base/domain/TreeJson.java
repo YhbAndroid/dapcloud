@@ -17,7 +17,7 @@ public class TreeJson implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public String id;
-	/**selectTree*/
+    /**selectTree*/
     private String name;
     private String icon;
     private String parentId;
@@ -30,105 +30,105 @@ public class TreeJson implements Serializable {
 
     private List<TreeJson> children = new ArrayList<TreeJson>();
 
-	public boolean isSpread() {
-		return spread;
-	}
+    public boolean isSpread() {
+        return spread;
+    }
 
-	public void setSpread(boolean spread) {
-		this.spread = spread;
-	}
+    public void setSpread(boolean spread) {
+        this.spread = spread;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public boolean isOpen() {
-		return open;
-	}
+    public boolean isOpen() {
+        return open;
+    }
 
-	public void setOpen(boolean open) {
-		this.open = open;
-	}
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
-	public String getParentId() {
-		return parentId;
-	}
+    public String getParentId() {
+        return parentId;
+    }
 
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public boolean isChecked() {
-		return checked;
-	}
+    public boolean isChecked() {
+        return checked;
+    }
 
-	public void setChecked(boolean checked) {
-		this.checked = checked;
-	}
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 
-	public List<TreeJson> getChildren() {
-		return children;
-	}
+    public List<TreeJson> getChildren() {
+        return children;
+    }
 
-	public void setChildren(List<TreeJson> children) {
-		this.children = children;
-	}
+    public void setChildren(List<TreeJson> children) {
+        this.children = children;
+    }
 
-	public static void getTree(List<TreeJson> list, TreeJson root) {
-		for(int i=0; i<list.size(); i++) {
-			TreeJson tj = list.get(i);
-			if(StringUtils.isNotBlank(tj.getParentId()) && tj.getParentId().equals(root.getId())) {
-				if( root.getChildren().indexOf(tj) == -1) {
-					root.getChildren().add(tj);
-				}
-				list.remove(tj);
-				i--;
-			}
-		}
-		if (root.getChildren().size()>0){
-			for(int i=0; i<root.getChildren().size(); i++) {
-				getTree(list, root.getChildren().get(i));
-			}
-		}else {
-			root.setChildren(null);
-		}
+    public static void getTree(List<TreeJson> list, TreeJson root) {
+        for (int i = 0; i < list.size(); i++) {
+            TreeJson tj = list.get(i);
+            if (StringUtils.isNotBlank(tj.getParentId()) && tj.getParentId().equals(root.getId())) {
+                if (root.getChildren().indexOf(tj) == -1) {
+                    root.getChildren().add(tj);
+                }
+                list.remove(tj);
+                i--;
+            }
+        }
+        if (root.getChildren().size() > 0) {
+            for (int i = 0; i < root.getChildren().size(); i++) {
+                getTree(list, root.getChildren().get(i));
+            }
+        } else {
+            root.setChildren(null);
+        }
 
-	}
+    }
 
 }

@@ -3,8 +3,7 @@ package com.dap.cloud.upload.domain;
 public class FileUrl {
     private String url;
 
-    public String getUrl()
-    {
+    public String getUrl() {
         return this.url;
     }
 

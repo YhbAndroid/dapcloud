@@ -1,7 +1,7 @@
 package com.dap.cloud.base.domain;
 
 public class ResultObject<T> {
-    
+
     private int code;
     private Integer count;
     private String msg;

@@ -3,24 +3,24 @@ package com.dap.cloud.base.domain;
 import java.io.Serializable;
 
 public class Attributes implements Serializable {
-	private static final long serialVersionUID = 1L;
-	private String url;
-	private String icon;
+    private static final long serialVersionUID = 1L;
+    private String url;
+    private String icon;
 
-	public String getUrl() {
-		return url;
-	}
+    public String getUrl() {
+        return url;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
-	
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
 }

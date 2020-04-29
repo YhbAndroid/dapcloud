@@ -13,7 +13,7 @@ import com.dap.cloud.base.domain.DataEntity;
  */
 public class Uploadfile extends DataEntity<Uploadfile> {
     private static final long serialVersionUID = 5454155825314635342L;
-      
+
     //文件原名
     private String viewname;
     //文件存储名
@@ -50,42 +50,47 @@ public class Uploadfile extends DataEntity<Uploadfile> {
     public void setViewname(String viewname) {
         this.viewname = viewname;
     }
-    
+
     public String getViewname() {
         return this.viewname;
     }
+
     public void setRealname(String realname) {
         this.realname = realname;
     }
-    
+
     public String getRealname() {
         return this.realname;
     }
+
     public void setUrl(String url) {
         this.url = url;
     }
-    
+
     public String getUrl() {
         return this.url;
     }
+
     public void setRealurl(String realurl) {
         this.realurl = realurl;
     }
-    
+
     public String getRealurl() {
         return this.realurl;
     }
+
     public void setSuffix(String suffix) {
         this.suffix = suffix;
     }
-    
+
     public String getSuffix() {
         return this.suffix;
     }
+
     public void setFilesize(String filesize) {
         this.filesize = filesize;
     }
-    
+
     public String getFilesize() {
         return this.filesize;
     }

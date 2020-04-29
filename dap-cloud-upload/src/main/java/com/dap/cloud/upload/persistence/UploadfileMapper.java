@@ -16,35 +16,35 @@ import java.util.List;
  */
 public interface UploadfileMapper {
 
-	/**
-	 * 根据ID查询单条数据
-	 * @param id
-	 * @return
-	 */
-	public Uploadfile findUploadfileById(String id);
-	
-	/**
-	 * 查询数据集合
-	 * @param uploadfile
-	 * @return
-	 */
-	public List<Uploadfile> findUploadfileList(Uploadfile uploadfile);
-	
-	/**
-	 * 查询数据总数
-	 * @return
-	 */
-	public EasyUIDataGrid findUploadfileListTotal(Uploadfile uploadfile);
-	
-	/**
-	 * 数据新增
-	 * @param uploadfile
-	 */
-	public void saveUploadfile(Uploadfile uploadfile);
-	
-	/**
-	 * 数据删除
-	 * @param listId
-	 */
-	public void deleteUploadfile(List<String> listId);
+    /**
+     * 根据ID查询单条数据
+     * @param id
+     * @return
+     */
+    public Uploadfile findUploadfileById(String id);
+
+    /**
+     * 查询数据集合
+     * @param uploadfile
+     * @return
+     */
+    public List<Uploadfile> findUploadfileList(Uploadfile uploadfile);
+
+    /**
+     * 查询数据总数
+     * @return
+     */
+    public EasyUIDataGrid findUploadfileListTotal(Uploadfile uploadfile);
+
+    /**
+     * 数据新增
+     * @param uploadfile
+     */
+    public void saveUploadfile(Uploadfile uploadfile);
+
+    /**
+     * 数据删除
+     * @param listId
+     */
+    public void deleteUploadfile(List<String> listId);
 }

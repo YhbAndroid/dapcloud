@@ -15,80 +15,80 @@ import java.io.Serializable;
 @MappedSuperclass
 public abstract class BaseEntity<T> implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 当前页号
-	 */
-	protected int page;
-	/**
-	 * 每页行数
-	 */
-	protected int rows;
-	protected int limit;
-	/**
-	 * 当前行号
-	 */
-	protected int row;
+    /**
+     * 当前页号
+     */
+    protected int page;
+    /**
+     * 每页行数
+     */
+    protected int rows;
+    protected int limit;
+    /**
+     * 当前行号
+     */
+    protected int row;
 
-	@JsonIgnore
-	public int getPage() {
-		if((this.page-1)*this.limit < 0) {
-			return 0;
-		}
-		return (this.page-1)*this.limit;
-	}
+    @JsonIgnore
+    public int getPage() {
+        if ((this.page - 1) * this.limit < 0) {
+            return 0;
+        }
+        return (this.page - 1) * this.limit;
+    }
 
-	public void setPage(int page) {
-		this.page = page;
-	}
+    public void setPage(int page) {
+        this.page = page;
+    }
 
-	@JsonIgnore
-	public int getRows() {
-		if(this.rows == 0) {
-			return 20;
-		}
-		return rows;
-	}
+    @JsonIgnore
+    public int getRows() {
+        if (this.rows == 0) {
+            return 20;
+        }
+        return rows;
+    }
 
-	public void setRows(int rows) {
-		this.rows = rows;
-	}
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
 
-	@JsonIgnore
-	public int getLimit() {
-		if(this.limit == 0) {
-			return 30;
-		}
-		return limit;
-	}
+    @JsonIgnore
+    public int getLimit() {
+        if (this.limit == 0) {
+            return 30;
+        }
+        return limit;
+    }
 
-	public void setLimit(int limit) {
-		this.limit = limit;
-	}
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
-	@JsonIgnore
-	public int getRow() {
-		if((this.page-1)*this.rows < 0) {
-			return 0;
-		}
-		return (this.page-1)*this.rows;
-	}
+    @JsonIgnore
+    public int getRow() {
+        if ((this.page - 1) * this.rows < 0) {
+            return 0;
+        }
+        return (this.page - 1) * this.rows;
+    }
 
-	public void setRow(int row) {
-		this.row = row;
-	}
+    public void setRow(int row) {
+        this.row = row;
+    }
 
-	@Override
-	public String toString() {
-		return ReflectionToStringBuilder.toString(this);
-	}
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
+    }
 
-	/**
-	 * 删除标记（1：正常；0：删除；2：审核；）
-	 */
-	public static final String DEL_FLAG_NORMAL = "1";
-	public static final String DEL_FLAG_DELETE = "0";
-	public static final String DEL_FLAG_AUDIT = "2";
+    /**
+     * 删除标记（1：正常；0：删除；2：审核；）
+     */
+    public static final String DEL_FLAG_NORMAL = "1";
+    public static final String DEL_FLAG_DELETE = "0";
+    public static final String DEL_FLAG_AUDIT = "2";
 
 }

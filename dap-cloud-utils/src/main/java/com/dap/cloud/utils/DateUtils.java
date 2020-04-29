@@ -164,7 +164,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
     /*
      * 将时间戳转换为时间
      */
-    public static Date stampToDate(String s){
+    public static Date stampToDate(String s) {
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long lt = new Long(s);
@@ -215,6 +215,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
         // long time = new Date().getTime()-parseDate("2012-11-19").getTime();
         // System.out.println(time/(24*60*60*1000));
     }
+
     /**
      * 功能：判断两个日期段内对应一周的周几，并返回具体的日期
      * @param date1 开始时间
@@ -222,26 +223,26 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @return
      * @throws Exception
      */
-    public static HashMap<String,String> getEveryWeek(Date date1, Date date2) throws Exception{
+    public static HashMap<String, String> getEveryWeek(Date date1, Date date2) throws Exception {
         HashMap<String, String> map = new HashMap<String, String>();
         Calendar start = Calendar.getInstance();
         start.setTime(date1);
-        while(date2.after(start.getTime())){
+        while (date2.after(start.getTime())) {
             String date = formatDate(start.getTime(), null);
-            int week=start.get(Calendar.DAY_OF_WEEK)-1;
-            if(week == 0){//0代表周日，6代表周六  ,5代表周五
+            int week = start.get(Calendar.DAY_OF_WEEK) - 1;
+            if (week == 0) {//0代表周日，6代表周六  ,5代表周五
                 map.put(date, "0");
-            }else if(week == 1){
+            } else if (week == 1) {
                 map.put(date, "1");
-            }else if(week == 2){
+            } else if (week == 2) {
                 map.put(date, "2");
-            }else if(week == 3){
+            } else if (week == 3) {
                 map.put(date, "3");
-            }else if(week == 4){
+            } else if (week == 4) {
                 map.put(date, "4");
-            }else if(week == 5){
+            } else if (week == 5) {
                 map.put(date, "5");
-            }else if(week == 6){
+            } else if (week == 6) {
                 map.put(date, "6");
             }
             start.add(Calendar.DAY_OF_MONTH, 1);
@@ -254,14 +255,14 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @return
      * @throws Exception
      */
-    public static boolean isBetween(String date,String startStr,String endStr) throws Exception{
+    public static boolean isBetween(String date, String startStr, String endStr) throws Exception {
         Date startDate = parseDate(startStr);
         Date endDate = parseDate(endStr);
         Date now = parseDate(date, "yyyy-MM-dd");
         //判断当前时间是否在时间段内
-        if((startDate.getTime() <= now.getTime()) && (now.getTime() <= endDate.getTime())){
+        if ((startDate.getTime() <= now.getTime()) && (now.getTime() <= endDate.getTime())) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
@@ -285,7 +286,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @param etime
      * @return
      */
-    public static List<String> getBetweenDays(String stime, String etime){
+    public static List<String> getBetweenDays(String stime, String etime) {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date sdate = null;
         Date eDate = null;
@@ -315,7 +316,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @param currentDate
      * @return
      */
-    public static String getStartDate(String currentDate){
+    public static String getStartDate(String currentDate) {
         StringBuilder str = new StringBuilder(currentDate);
         str.append("-00");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -326,7 +327,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
             e.printStackTrace();
         }
         c.add(Calendar.MONTH, 1);
-        c.set(Calendar.DAY_OF_MONTH,1);//设置为1号,当前日期既为本月第一天
+        c.set(Calendar.DAY_OF_MONTH, 1);//设置为1号,当前日期既为本月第一天
         String first = sdf.format(c.getTime());
         return first;
     }
@@ -336,7 +337,7 @@ public class DateUtils extends org.apache.commons.lang3.time.DateUtils {
      * @param currentDate
      * @return
      */
-    public static String getEndDate(String currentDate){
+    public static String getEndDate(String currentDate) {
         StringBuilder str = new StringBuilder(currentDate);
         str.append("-00");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

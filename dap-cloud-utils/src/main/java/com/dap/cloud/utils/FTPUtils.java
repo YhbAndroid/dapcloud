@@ -173,12 +173,12 @@ public class FTPUtils {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-		try {
-			FileInputStream fis = new FileInputStream(new File("D:\\1.png"));
-			System.out.println(storeFile("47.98.127.37", 21, "manstro", "123456", "upload", "1.png", fis));
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+        try {
+            FileInputStream fis = new FileInputStream(new File("D:\\1.png"));
+            System.out.println(storeFile("47.98.127.37", 21, "manstro", "123456", "upload", "1.png", fis));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         //File file = new File("C:/Users/freed/Desktop/1.txt");
         //InputStream is = new FileInputStream(file);172.16.76.157
